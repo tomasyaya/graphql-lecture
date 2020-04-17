@@ -6,6 +6,7 @@ const typeDefs = gql`
     name: String
     breed: String
     age: Int
+    img: String
   }
 
   input PetInput {
@@ -13,6 +14,7 @@ const typeDefs = gql`
     name: String
     breed: String
     age: Int
+    img: String
   }
 
   type Query {

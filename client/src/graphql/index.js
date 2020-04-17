@@ -3,9 +3,11 @@ import { gql } from "@apollo/client";
 export const getPets = gql`
   query GetPets {
     getPets {
+      id
       name
       breed
       age
+      img
     }
   }
 `;
@@ -13,9 +15,11 @@ export const getPets = gql`
 export const getPet = gql`
   query GetPet($input: PetInput) {
     getPet(input: $input) {
+      id
       name
       breed
       age
+      img
     }
   }
 `;
@@ -23,9 +27,11 @@ export const getPet = gql`
 export const addPet = gql`
   mutation AddPet($input: PetInput) {
     addPet(input: $input) {
+      id
       name
       breed
       age
+      img
     }
   }
 `;

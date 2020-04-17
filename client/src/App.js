@@ -1,36 +1,20 @@
-import React, { useEffect } from "react";
-import { useQuery, useMutation } from "@apollo/client";
-import { getPets, getPet, addPet } from "./graphql";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import PetsContainer from "./containers/PetsContainer";
+import { Wrapper } from "./layout";
+import { Routes } from "./constants";
+import "./index.css";
 
-console.log(getPets);
 function App() {
-  const { loading, error, data } = useQuery(getPet, {
-    variables: {
-      input: {
-        name: "Tony",
-      },
-    },
-  });
-  const res = useQuery(getPets);
-  const [add, result] = useMutation(addPet, {
-    update(cache) {
-      const res = cache.readQuery({ query: getPets });
-    },
-  });
-  useEffect(() => {
-    add({
-      variables: {
-        input: {
-          id: Math.floor(Math.random() * 1000),
-          name: "tomas",
-          breed: "tomas",
-          age: 12,
-        },
-      },
-    });
-  }, []);
-
-  return <div className="App"></div>;
+  return (
+    <Wrapper>
+      <Navbar />
+      <Switch>
+        <Route exact to={Routes.HOME} render={() => <PetsContainer />} />
+      </Switch>
+    </Wrapper>
+  );
 }
 
 export default App;
