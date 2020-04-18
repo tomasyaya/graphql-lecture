@@ -9,7 +9,7 @@ const Pets = ({ pets, loading, error }) => {
   if (loading) return <Loader />;
 
   const displayPets = pets.map(({ id, ...pet }) => (
-    <PetCard key={pet.id} {...pet} />
+    <PetCard key={id} {...pet} />
   ));
   return (
     <MainContainer>

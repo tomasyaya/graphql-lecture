@@ -1,10 +1,11 @@
 let pets = require("../data");
+const auth = require("../auth");
 
 const getPet = (_, { input }, ctx) => {
   return pets.find((pet) => pet.name === input.name);
 };
 
-const getPets = () => pets;
+const getPets = auth(() => pets);
 
 const addPet = (_, { input }, ctx) => {
   pets = [...pets, input];
