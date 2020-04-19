@@ -2,7 +2,7 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Pet {
-    id: Int
+    id: ID!
     name: String
     breed: String
     age: Int
@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   input PetInput {
-    id: Int
+    id: ID!
     name: String
     breed: String
     age: Int
@@ -18,12 +18,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    getPet(id: Int): Pet
+    getPet(id: ID!): Pet
     getPets: [Pet]
   }
 
   type Mutation {
-    addPet(input: PetInput): [Pet]
+    addPet(input: PetInput): Pet
     updatePet(input: PetInput): [Pet]
     removePet(input: PetInput): [Pet]
   }

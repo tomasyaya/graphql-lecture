@@ -8,8 +8,9 @@ const getPet = (_, { input }, ctx) => {
 const getPets = auth(() => pets);
 
 const addPet = (_, { input }, ctx) => {
+  console.log("input", input);
   pets = [...pets, input];
-  return pets;
+  return input;
 };
 
 const updatePet = (_, { input }, ctx) => {
