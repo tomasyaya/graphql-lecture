@@ -1,6 +1,10 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
+  type Item {
+    name: String
+  }
+
   type Pet {
     id: ID!
     name: String
@@ -30,6 +34,11 @@ const typeDefs = gql`
     addPet(input: PetInput): Pet
     updatePet(input: PetInput): [Pet]
     removePet(input: PetInput): [Pet]
+    createItem: Item
+  }
+
+  type Subscription {
+    newItem: Item
   }
 `;
 

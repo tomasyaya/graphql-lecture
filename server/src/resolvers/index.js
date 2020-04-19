@@ -1,5 +1,8 @@
 let pets = require("../data");
 const auth = require("../auth");
+const pubSub = require("../pubsub");
+
+const NEW_ITEM = "NEW_ITEM";
 
 const getPet = (_, { input }, ctx) => {
   return pets.find((pet) => pet.name === input.name);
@@ -26,6 +29,12 @@ const removePet = (_, { input }, ctx) => {
   return pets;
 };
 
+const createItem = () => {
+  const item = { name: "NEW ITEM!!" };
+  pubSub.publish(NEW_ITEM, { newItem: item });
+  return item;
+};
+
 module.exports = {
   Query: {
     getPet,
@@ -35,5 +44,11 @@ module.exports = {
     addPet,
     updatePet,
     removePet,
+    createItem,
+  },
+  Subscription: {
+    newItem: {
+      subscribe: () => pubSub.asyncIterator(NEW_ITEM),
+    },
   },
 };

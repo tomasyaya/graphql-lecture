@@ -5,9 +5,15 @@ const resolvers = require("./resolvers");
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context({ req }) {
+  context({ req, connection }) {
+    if (connection) {
+      return { ...connection.context };
+    }
     const user = req.headers.authorization;
     return { user };
+  },
+  subscriptions: {
+    onConnect(params) {},
   },
 });
 
