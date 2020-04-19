@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Title, Label } from "./styles";
+import { Form, Input, Button, Title } from "./styles";
 
 const NewPet = ({ handleChange, handleSubmit, state }) => {
   return (

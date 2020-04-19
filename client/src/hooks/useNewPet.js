@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { useMutation } from "@apollo/client";
+import swal from "sweetalert";
 import { addPet, getPets } from "../graphql";
 import { newPetReducer, initialState } from "../reducers/newPetReducer";
 import { RESET_FIELDS, UPDATE_FIELDS } from "../constants";
@@ -24,7 +25,7 @@ export const useNewPet = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await addNewPet({
+    await addNewPet({
       variables: {
         input: {
           name: state.name,
@@ -35,9 +36,13 @@ export const useNewPet = () => {
         },
       },
     });
-    console.log("ressspuesea", res);
     dispatch({
       type: RESET_FIELDS,
+    });
+    swal({
+      title: "Congratulations!",
+      text: "Check the new pet in the feed",
+      icon: "success",
     });
   };
 

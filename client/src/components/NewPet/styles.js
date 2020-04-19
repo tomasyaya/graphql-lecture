@@ -4,7 +4,7 @@ import { colors } from "../../theme/colors";
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 350px;
   margin: 50px auto;
   height: 280px;
   border-radius: 10px;
