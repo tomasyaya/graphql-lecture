@@ -1,11 +1,3 @@
-import React from "react";
-import { Navbar, Link } from "./styles";
+import Navbar from "./Navbar";
 
-const Nav = () => (
-  <Navbar>
-    <Link to="/">Pets</Link>
-    <Link to="/new">New</Link>
-  </Navbar>
-);
-
-export default Nav;
+export default Navbar;

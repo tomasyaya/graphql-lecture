@@ -4,6 +4,7 @@ import Loader from "../../components/Loader";
 import { MainContainer, Grid } from "./styles";
 
 const Pets = ({ pets, loading, error }) => {
+  console.log(pets);
   if (error) return "sory, something went wrong";
 
   if (loading) return <Loader />;

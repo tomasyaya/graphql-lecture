@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../theme/colors";
 
 export const Container = styled.div`
   min-height: 300px;
@@ -19,7 +20,7 @@ export const Image = styled.img`
 
 export const Name = styled.h4`
   text-transform: uppercase;
-  color: rgb(0, 216, 144);
+  color: ${colors.mainGreen};
   font-weight: bold;
   margin: 0;
   padding: 5px 20px;
