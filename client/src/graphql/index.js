@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const getPets = gql`
-  query GetPets {
-    getPets {
+  query GetPets($page: Int) {
+    getPets(page: $page) {
       id
       name
       breed

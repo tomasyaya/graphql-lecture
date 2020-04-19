@@ -17,9 +17,13 @@ const typeDefs = gql`
     img: String
   }
 
+  input PaginationInput {
+    page: Int
+  }
+
   type Query {
     getPet(id: ID!): Pet
-    getPets: [Pet]
+    getPets(page: Int): [Pet]
   }
 
   type Mutation {

@@ -1,10 +1,9 @@
 import React from "react";
 import PetCard from "../../components/PetCard";
 import Loader from "../../components/Loader";
-import { MainContainer, Grid } from "./styles";
+import { MainContainer, Grid, Button } from "./styles";
 
-const Pets = ({ pets, loading, error }) => {
-  console.log(pets);
+const Pets = ({ pets, loading, error, handleFetchMore }) => {
   if (error) return "sory, something went wrong";
 
   if (loading) return <Loader />;
@@ -15,6 +14,7 @@ const Pets = ({ pets, loading, error }) => {
   return (
     <MainContainer>
       <Grid>{displayPets}</Grid>
+      <Button onClick={handleFetchMore}>More</Button>
     </MainContainer>
   );
 };

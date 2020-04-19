@@ -10,11 +10,19 @@ export const useNewPet = () => {
   const [state, dispatch] = useReducer(newPetReducer, initialState);
   const [addNewPet] = useMutation(addPet, {
     update(cache, { data: { addPet: newPet } }) {
-      const { getPets: cachePets } = cache.readQuery({ query: getPets });
+      const { getPets: cachePets } = cache.readQuery({
+        query: getPets,
+        variables: { page: 1 },
+      });
       const updatePets = {
         getPets: [newPet, ...cachePets],
       };
-      cache.writeQuery({ query: getPets, data: updatePets });
+      console.log(cachePets);
+      cache.writeQuery({
+        query: getPets,
+        variables: { page: 1 },
+        data: updatePets,
+      });
     },
   });
   const handleChange = ({ target }) =>

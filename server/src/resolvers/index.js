@@ -5,10 +5,11 @@ const getPet = (_, { input }, ctx) => {
   return pets.find((pet) => pet.name === input.name);
 };
 
-const getPets = auth(() => pets);
+const getPets = auth((_, { page }, ctx) => {
+  return pets.slice((page - 1) * 4, page * 4);
+});
 
 const addPet = (_, { input }, ctx) => {
-  console.log("input", input);
   pets = [...pets, input];
   return input;
 };
