@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Container, Image, Name, Text } from "./styles";
 
 const PetCard = ({ name, age, breed, img }) => (
