@@ -12,8 +12,8 @@ function App() {
     <Wrapper>
       <Navbar />
       <Switch>
-        <Route exact path={Routes.HOME} render={() => <PetsContainer />} />
-        <Route exact path={Routes.NEW} render={() => <NewPetContainer />} />
+        <Route exact path={Routes.HOME} component={<PetsContainer />} />
+        <Route exact path={Routes.NEW} component={<NewPetContainer />} />
       </Switch>
     </Wrapper>
   );
