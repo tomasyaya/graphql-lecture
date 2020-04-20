@@ -1,10 +1,10 @@
 import React from "react";
-import PetCard from "../../components/PetCard";
 import Loader from "../../components/Loader";
+import PetCard from "../../components/PetCard";
 import { MainContainer, Grid, Button } from "./styles";
 
 const Pets = ({ pets, loading, error, handleFetchMore }) => {
-  if (error) return "sory, something went wrong";
+  if (error) return "sorry, something went wrong";
 
   if (loading) return <Loader />;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { CircularLoader } from "./styles";
 
-const Loader = () => <CircularLoader></CircularLoader>;
+const Loader = () => <CircularLoader />;
 
 export default Loader;
