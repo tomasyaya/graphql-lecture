@@ -1,8 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Title } from "./styles";
 
-const NewPet = ({ handleChange, handleSubmit, state }) => {
-  return (
+const NewPet = ({ handleChange, handleSubmit, state }) => (
     <Form onSubmit={handleSubmit}>
       <Title>New Pet</Title>
       <Input
@@ -32,6 +31,5 @@ const NewPet = ({ handleChange, handleSubmit, state }) => {
       <Button type="submit">Create</Button>
     </Form>
   );
-};
 
 export default NewPet;
