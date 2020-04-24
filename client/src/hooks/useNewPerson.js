@@ -1,12 +1,21 @@
 import { useReducer } from "react";
 import { useMutation } from "@apollo/client";
-import { createPerson } from "../graphql";
+import swal from "sweetalert";
+import { createPerson, getPersons } from "../graphql";
 import { newPetReducer, initialState } from "../reducers/newPersonReducer";
 import { UPDATE_FIELDS, RESET_FIELDS } from "../constants";
 
 export const useNewPerson = () => {
   const [state, dispatch] = useReducer(newPetReducer, initialState);
-  const [createNewPerson] = useMutation(createPerson);
+  const [createNewPerson] = useMutation(createPerson, {
+    update(cache, { data: { createPerson: newPerson } }) {
+      const { getPersons: cachePersons } = cache.readQuery({
+        query: getPersons,
+      });
+      const updatePersons = { getPersons: [newPerson, ...cachePersons] };
+      cache.writeQuery({ query: getPersons, data: updatePersons });
+    },
+  });
   const handleChange = ({ target }) =>
     dispatch({
       type: UPDATE_FIELDS,
@@ -15,7 +24,7 @@ export const useNewPerson = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await createNewPerson({
+    await createNewPerson({
       variables: {
         input: {
           id: JSON.stringify(Math.floor(Math.random() * 1000)),
@@ -24,10 +33,23 @@ export const useNewPerson = () => {
           address: state.address,
         },
       },
+      optimisticResponse: {
+        createPerson: {
+          __typename: "Person",
+          id: "233445",
+          name: state.name,
+          surname: state.surname,
+          address: state.address,
+        },
+      },
     });
-    console.log("PERSON", data);
     dispatch({
       type: RESET_FIELDS,
+    });
+    swal({
+      title: "Congratulations!",
+      text: "Check the new pet in the feed",
+      icon: "success",
     });
   };
 

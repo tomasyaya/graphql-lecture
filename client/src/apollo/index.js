@@ -1,9 +1,9 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "apollo-link-context";
+import { URL } from "../constants";
 
-const url = "http://localhost:4000";
 const cache = new InMemoryCache();
-const link = createHttpLink({ uri: url });
+const link = createHttpLink({ uri: URL });
 
 const authLink = setContext((_, { headers }) => {
   const token = "FJ3R2R45883HIH93";

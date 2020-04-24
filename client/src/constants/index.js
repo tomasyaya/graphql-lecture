@@ -10,3 +10,7 @@ export const Routes = { HOME, NEW, NEW_PERSON, PERSONS };
 
 export const UPDATE_FIELDS = "UPDATE_FIELDS";
 export const RESET_FIELDS = "RESET_FIELDS";
+
+// Apollo Config
+
+export const URL = "http://localhost:4000";
