@@ -2,7 +2,9 @@
 
 const HOME = "/";
 const NEW = "/new";
-export const Routes = { HOME, NEW };
+const PERSONS = "/persons";
+const NEW_PERSON = "/new-person";
+export const Routes = { HOME, NEW, NEW_PERSON, PERSONS };
 
 // New Pet Reducer
 

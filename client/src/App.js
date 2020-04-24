@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PetsContainer from "./containers/PetsContainer";
 import NewPetContainer from "./containers/NewPetContainer";
+import NewPersonContainer from "./containers/NewPersonContainer";
 import { Wrapper } from "./layout";
 import { Routes } from "./constants";
 import "./index.css";
