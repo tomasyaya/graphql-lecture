@@ -1,8 +1,12 @@
-let pets = require("../data");
+let pets = require("../data/pets");
+let persons = require("../data/persons");
+const mockPerson = require("../mocks");
 const auth = require("../auth");
 const pubSub = require("../pubsub");
 
 const NEW_ITEM = "NEW_ITEM";
+
+// ----- PETS -------
 
 const getPet = (_, { input }, ctx) => {
   return pets.find((pet) => pet.name === input.name);
@@ -35,16 +39,27 @@ const createItem = () => {
   return item;
 };
 
+// ---- PERSONS ------
+
+const getPersons = (_, args, ctx) => persons;
+
+const createPerson = async (_, { input }, ctx) => {
+  const person = await mockPerson({ ...input });
+  return person;
+};
+
 module.exports = {
   Query: {
     getPet,
     getPets,
+    getPersons,
   },
   Mutation: {
     addPet,
     updatePet,
     removePet,
     createItem,
+    createPerson,
   },
   Subscription: {
     newItem: {
