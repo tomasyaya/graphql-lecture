@@ -35,3 +35,14 @@ export const addPet = gql`
     }
   }
 `;
+
+export const getPersons = gql`
+  query GetPersons {
+    getPersons {
+      id
+      name
+      surname
+      address
+    }
+  }
+`;
