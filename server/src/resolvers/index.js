@@ -44,7 +44,9 @@ const createItem = () => {
 const getPersons = (_, args, ctx) => persons;
 
 const createPerson = async (_, { input }, ctx) => {
-  const person = await mockPerson({ ...input });
+  const newPerson = { ...input };
+  console.log(newPerson);
+  const person = await mockPerson(newPerson);
   return person;
 };
 

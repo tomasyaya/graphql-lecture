@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PetsContainer from "./containers/PetsContainer";
+import Persons from "./containers/Persons";
 import NewPetContainer from "./containers/NewPetContainer";
 import NewPersonContainer from "./containers/NewPersonContainer";
 import PersonsContainer from "./containers/PersonsContainer";
@@ -16,8 +17,8 @@ function App() {
       <Switch>
         <Route exact path={Routes.HOME} component={PetsContainer} />
         <Route exact path={Routes.NEW} component={NewPetContainer} />
-        <Route exact path={Routes.NEW_PERSON} component={NewPersonContainer} />
-        <Route exact path={Routes.PERSONS} component={PersonsContainer} />
+        {/* <Route exact path={Routes.NEW_PERSON} component={NewPersonContainer} /> */}
+        <Route exact path={Routes.PERSONS} component={Persons} />
       </Switch>
     </Wrapper>
   );

@@ -49,7 +49,7 @@ const typeDefs = gql`
     addPet(input: PetInput): Pet
     updatePet(input: PetInput): [Pet]
     removePet(input: PetInput): [Pet]
-    createPerson(input: PersonInput): [Person]
+    createPerson(input: PersonInput): Person
     createItem: Item
   }
 

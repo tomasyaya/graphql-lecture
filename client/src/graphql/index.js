@@ -46,3 +46,14 @@ export const getPersons = gql`
     }
   }
 `;
+
+export const createPerson = gql`
+  mutation CreatePerson($input: PersonInput) {
+    createPerson(input: $input) {
+      id
+      name
+      surname
+      address
+    }
+  }
+`;

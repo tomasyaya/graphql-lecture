@@ -5,6 +5,7 @@ const Form = ({ data = [], submit, title }) => {
   const displayInputs = data.map(
     ({ type, name, value, handler, required, placeholder }) => (
       <Input
+        key={name}
         placeholder={placeholder}
         required={required}
         onChange={handler}
@@ -15,10 +16,10 @@ const Form = ({ data = [], submit, title }) => {
     )
   );
   return (
-    <StyledForm>
+    <StyledForm onSubmit={submit}>
       <Title>{title}</Title>
       {displayInputs}
-      <Button onClick={submit}>Add</Button>
+      <Button type="submit">Add</Button>
     </StyledForm>
   );
 };
