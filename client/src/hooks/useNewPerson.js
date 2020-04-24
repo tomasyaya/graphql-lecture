@@ -22,9 +22,9 @@ export const useNewPerson = () => {
       payload: { [target.name]: target.value },
     });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await createNewPerson({
+    createNewPerson({
       variables: {
         input: {
           id: JSON.stringify(Math.floor(Math.random() * 1000)),

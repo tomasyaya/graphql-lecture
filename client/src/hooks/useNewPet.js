@@ -17,7 +17,6 @@ export const useNewPet = () => {
       const updatePets = {
         getPets: [newPet, ...cachePets],
       };
-
       cache.writeQuery({
         query: getPets,
         variables: { page: 1 },
