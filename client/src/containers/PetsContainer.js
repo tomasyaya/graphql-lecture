@@ -1,7 +1,4 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
-
-import { getPets } from "../graphql";
 import { usePets } from "../hooks/usePets";
 import Pets from "../views/Pets";
 

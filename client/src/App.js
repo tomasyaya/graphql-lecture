@@ -13,8 +13,9 @@ function App() {
     <Wrapper>
       <Navbar />
       <Switch>
-        <Route exact path={Routes.HOME} component={<PetsContainer />} />
-        <Route exact path={Routes.NEW} component={<NewPetContainer />} />
+        <Route exact path={Routes.HOME} component={PetsContainer} />
+        <Route exact path={Routes.NEW} component={NewPetContainer} />
+        <Route exact path={Routes.NEW_PERSON} component={NewPersonContainer} />
       </Switch>
     </Wrapper>
   );

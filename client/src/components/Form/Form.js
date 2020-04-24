@@ -1,7 +1,7 @@
 import React from "react";
-import { Form, Input, Button } from "./styles";
+import { StyledForm, Input, Button, Title } from "./styles";
 
-const Form = ({ data, submit }) => {
+const Form = ({ data = [], submit, title }) => {
   const displayInputs = data.map(
     ({ type, name, value, handler, required, placeholder }) => (
       <Input
@@ -15,8 +15,12 @@ const Form = ({ data, submit }) => {
     )
   );
   return (
-    <Form>
-      {displayInputs} <Button onClick={submit}>Add</Button>
-    </Form>
+    <StyledForm>
+      <Title>{title}</Title>
+      {displayInputs}
+      <Button onClick={submit}>Add</Button>
+    </StyledForm>
   );
 };
+
+export default Form;

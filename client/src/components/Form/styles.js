@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../theme/colors";
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 350px;
