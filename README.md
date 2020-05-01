@@ -1,9 +1,9 @@
 # graphql-lecture
 
-# Server
+### Server
 
-`Run with yarn server or npm server`
+Run with `yarn server` or `npm run server` from `graphql/server` 
 
-# Client
+### Client
 
-`Run with yarn start or npm start`
+Run with `yarn start` or `npm start` from `graphql/client`

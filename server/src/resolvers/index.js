@@ -33,6 +33,8 @@ const removePet = (_, { input }, ctx) => {
   return pets;
 };
 
+// --- ITEM ------
+
 const createItem = () => {
   const item = { name: "NEW ITEM!!" };
   pubSub.publish(NEW_ITEM, { newItem: item });
